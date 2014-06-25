@@ -3,7 +3,7 @@ nirvana
 
 A place to test and learn for mak
 
-To start with todo app clone the repo and run the following commands in your browser
+To start with todo app clone the repo and run the following commands in your browser<small>(Make sure you have installed nodejs ruby compass)</small>
 
 <i>bower install</i>
 
