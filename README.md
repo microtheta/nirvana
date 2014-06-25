@@ -3,13 +3,16 @@ nirvana
 
 A place to test and learn for mak
 
-To start with todo app clone the repo and run
+To start with todo app clone the repo and run the following commands in your browser
 
-bower install
+<i>bower install</i>
 
-npm install
+<i>npm install</i>
 
-grunt serve
-
+<i>grunt serve</i>
 
 that's it!!
+
+and to test 
+
+<i>grunt test</i>
