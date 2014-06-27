@@ -81,7 +81,29 @@ module.exports = function (grunt) {
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+							function(req, res, next) {
+								var fileToRead = '';
+								var match = false;
+								var endpoints = require('./app/endpoints/endpoints.js');
+								if(endpoints[req.url]){
+									fileToRead = endpoints[req.url];
+									fileToRead(req,res,grunt);
+								}
+								else{
+									Object.keys(endpoints).forEach(function(url) {
+										if (req.url.indexOf(url) === 0) {
+												match = true;
+												fileToRead = endpoints[url];
+												fileToRead(req,res,grunt);
+										}
+									});
+									//no match with the url, move along
+									if (match == false) {
+										return next();
+									}
+								}
+							}
             ];
           }
         }
@@ -89,15 +111,36 @@ module.exports = function (grunt) {
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
+					middleware: function (connect) {
             return [
               connect.static('.tmp'),
-              connect.static('test'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect.static(appConfig.app)
+              connect.static(appConfig.app),
+							function(req, res, next) {
+								var fileToRead = '';
+								var match = false;
+								var endpoints = require('./app/endpoints/endpoints.js');
+								if(endpoints[req.url]){
+									fileToRead = endpoints[req.url];
+									fileToRead(req,res,grunt);
+								}
+								else{
+									Object.keys(endpoints).forEach(function(url) {
+										if (req.url.indexOf(url) === 0) {
+												match = true;
+												fileToRead = endpoints[url];
+												fileToRead(req,res,grunt);
+										}
+									});
+									//no match with the url, move along
+									if(match == false) {
+										return next();
+									}
+								}
+							}
             ];
           }
         }
