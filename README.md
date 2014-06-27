@@ -1,18 +1,25 @@
 nirvana
 =======
 
-A place to test and learn for mak
+A place to learn, test, develop, explore and making the fun for mak
 
-To start with todo app clone the repo and run the following commands in your browser.<small>(Make sure you have installed nodejs and ruby compass)</small>
+To start with todo app clone the repo and run the following commands in your browser. <small>(Make sure you have installed nodejs and ruby compass)</small>
 
-<i>bower install</i>
+```bash
+bower install
+```
 
-<i>npm install</i>
+```bash
+npm install
+```
 
-<i>grunt serve</i>
-
+```bash
+grunt serve
+```
 that's it!!
 
 and to test 
 
-<i>grunt test</i>
+```bash
+grunt test
+```
