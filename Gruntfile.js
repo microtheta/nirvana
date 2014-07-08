@@ -172,6 +172,30 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+		html2js: {
+				tpltoJs:{
+					src: ['app/views/**/*.html'],
+					dest:  'app/devServer/views.js',
+					module: 'appviews'
+				}
+    },
+		browserify: {
+      main: {
+        files: {
+          'app/devServer/browserifyScript.js': ['app/scripts/**/*.js']
+        }
+      },
+		},
+		concat:{
+			jstojs:{
+				src: [
+          'app/devServer/browserifyScript.js',
+          'app/devServer/views.js'
+        ],
+        dest: 'app/devServer/include.js'
+			}
+		},
+		
 
     // Empties folders to start fresh
     clean: {
@@ -185,6 +209,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
+			devServer: 'app/devServer/',
       server: '.tmp'
     },
 
@@ -440,6 +465,10 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'clean:devServer',
+			'browserify:main',
+			'html2js:tpltoJs',
+			'concat:jstojs',
       'wiredep',
       'concurrent:server',
       'autoprefixer',

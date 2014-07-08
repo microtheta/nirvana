@@ -2,31 +2,30 @@
 
 /**
  * @ngdoc overview
- * @name yeomanApp
+ * @name yomanApp
  * @description
- * # yeomanApp
+ * # yomanApp
  *
  * Main module of the application.
  */
+ require('./main/module');
+ require('./about/module');
+ 
 angular
-  .module('yeomanApp', [
+  .module('yomanApp', [
+		'appviews',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+		'ui.sortable',
+		'main',
+		'about'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
