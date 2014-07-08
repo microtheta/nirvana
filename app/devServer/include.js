@@ -24,7 +24,7 @@ angular.module('about',[])
 	.config(function ($routeProvider) {
     $routeProvider
       .when('/about', {
-				templateUrl: '../app/views/about.html',
+				templateUrl: 'views/about/about.html',
         controller: 'AboutCtrl'
 		});
 	});
@@ -91,21 +91,21 @@ angular.module('main',[])
 	.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '../app/views/main.html',
+        templateUrl: 'views/main/main.html',
         controller: 'MainCtrl'
 		});
 	});
 },{"./controllers/main":4}]},{},[1,2,3,4,5]);
-angular.module('appviews', ['../app/views/about.html', '../app/views/main.html']);
+angular.module('appviews', ['views/about/about.html', 'views/main/main.html']);
 
-angular.module("../app/views/about.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("../app/views/about.html",
+angular.module("views/about/about.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("views/about/about.html",
     "<p>This is the about view.</p>\n" +
     "");
 }]);
 
-angular.module("../app/views/main.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("../app/views/main.html",
+angular.module("views/main/main.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("views/main/main.html",
     "<div class=\"container\">\n" +
     "  <h2>My todos</h2>\n" +
     "\n" +

@@ -5,7 +5,7 @@ angular.module('about',[])
 	.config(function ($routeProvider) {
     $routeProvider
       .when('/about', {
-				templateUrl: '../app/views/about.html',
+				templateUrl: 'views/about/about.html',
         controller: 'AboutCtrl'
 		});
 	});

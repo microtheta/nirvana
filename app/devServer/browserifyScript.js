@@ -24,7 +24,7 @@ angular.module('about',[])
 	.config(function ($routeProvider) {
     $routeProvider
       .when('/about', {
-				templateUrl: '../app/views/about.html',
+				templateUrl: 'views/about/about.html',
         controller: 'AboutCtrl'
 		});
 	});
@@ -91,7 +91,7 @@ angular.module('main',[])
 	.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '../app/views/main.html',
+        templateUrl: 'views/main/main.html',
         controller: 'MainCtrl'
 		});
 	});

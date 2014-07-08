@@ -174,25 +174,28 @@ module.exports = function (grunt) {
     },
 		html2js: {
 				tpltoJs:{
-					src: ['app/views/**/*.html'],
-					dest:  'app/devServer/views.js',
+					options: {
+              base: '<%= yeoman.app %>'
+          },
+					src: ['<%= yeoman.app %>/views/**/*.html'],
+					dest:  '<%= yeoman.app %>/devServer/views.js',
 					module: 'appviews'
 				}
     },
 		browserify: {
       main: {
         files: {
-          'app/devServer/browserifyScript.js': ['app/scripts/**/*.js']
+          '<%= yeoman.app %>/devServer/browserifyScript.js': ['<%= yeoman.app %>/scripts/**/*.js']
         }
       },
 		},
 		concat:{
 			jstojs:{
 				src: [
-          'app/devServer/browserifyScript.js',
-          'app/devServer/views.js'
+          '<%= yeoman.app %>/devServer/browserifyScript.js',
+          '<%= yeoman.app %>/devServer/views.js'
         ],
-        dest: 'app/devServer/include.js'
+        dest: '<%= yeoman.app %>/devServer/include.js'
 			}
 		},
 		
