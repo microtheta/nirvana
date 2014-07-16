@@ -23,3 +23,11 @@ and to test
 ```bash
 grunt test
 ```
+
+# Using sprites 
+
+	Put your icon in `app/images/icon` directory and use as `.icon-<img name>`
+
+# Using mock endpoints
+
+	Create a url map in ``` endpoints.js``` and write a function to send the mock data to request.

@@ -1,0 +1,16 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+@import "compass/utilities/sprites";
+@import "./icon/*.png";
+$icon-sprite-dimensions: true;
+@include all-icon-sprites;
+
+[class^="icon-"],
+[class*=" icon-"] {
+	display:inline-block;
+}
+
+@import "./main"

@@ -41,7 +41,7 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/jquery-ui/ui/jquery-ui.js',
       'bower_components/angular-ui-sortable/sortable.js',
-      'app/scripts/**/*.js',
+      'app/devServer/include.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],

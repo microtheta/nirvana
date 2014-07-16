@@ -19,7 +19,7 @@ module.exports =  function ($scope){
 },{}],2:[function(require,module,exports){
 'use strict';
 
-angular.module('about',[])
+angular.module('about',['ngRoute'])
   .controller('AboutCtrl',require('./controllers/about'))
 	.config(function ($routeProvider) {
     $routeProvider
@@ -73,7 +73,7 @@ angular
  * Controller of the yomanApp
  */
 
-module.exports =  function ($scope) {
+module.exports =  function ($scope,$http) {
 	$scope.todos = ['Item 1', 'Item 2', 'Item 3'];
 	$scope.addTodo = function () {
 		$scope.todos.push($scope.todo);
@@ -81,12 +81,46 @@ module.exports =  function ($scope) {
 	};
 	$scope.removeTodo = function (index) {
 		$scope.todos.splice(index, 1);
+				/* example to check mock-endpoints */
+
+				$http.get('abc/func?a=1&b=2', {
+				cache: false,
+				}).then(function (data) {
+				console.log(data.data);
+				return data;
+				}, this.error);
+				
+			/* 	$http.post('abc/func', 
+					{
+						'a':'a1','b':2
+					},
+					{
+						cache: false,
+					}).
+					then(function (data) {
+						console.log(data.data);
+						return data;
+					}, this.error);
+					
+					
+					$http.post('abc/func', 
+					{
+						'a':2,'b':3
+					},
+					{
+						cache: false,
+					}).
+					then(function (data) {
+						console.log(data.data);
+						return data;
+					}, this.error); */
+				
 	};
 };
 },{}],5:[function(require,module,exports){
 'use strict';
 
-angular.module('main',[])
+angular.module('main',['ngRoute'])
   .controller('MainCtrl',require('./controllers/main'))
 	.config(function ($routeProvider) {
     $routeProvider

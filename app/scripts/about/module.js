@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('about',[])
+angular.module('about',['ngRoute'])
   .controller('AboutCtrl',require('./controllers/about'))
 	.config(function ($routeProvider) {
     $routeProvider

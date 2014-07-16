@@ -86,6 +86,7 @@ module.exports = function (grunt) {
 								var fileToRead = '';
 								var match = false;
 								var endpoints = require('./app/endpoints/endpoints.js');
+								require('./app/endpoints/serverUtils.js');
 								if(endpoints[req.url]){
 									fileToRead = endpoints[req.url];
 									fileToRead(req,res,grunt);
@@ -123,6 +124,7 @@ module.exports = function (grunt) {
 								var fileToRead = '';
 								var match = false;
 								var endpoints = require('./app/endpoints/endpoints.js');
+								require('./app/endpoints/serverUtils.js');
 								if(endpoints[req.url]){
 									fileToRead = endpoints[req.url];
 									fileToRead(req,res,grunt);
@@ -136,7 +138,7 @@ module.exports = function (grunt) {
 										}
 									});
 									//no match with the url, move along
-									if(match == false) {
+									if (match == false) {
 										return next();
 									}
 								}
@@ -212,7 +214,7 @@ module.exports = function (grunt) {
           ]
         }]
       },
-			devServer: 'app/devServer/',
+			devServer: '<%= yeoman.app %>/devServer/',
       server: '.tmp'
     },
 
@@ -249,6 +251,7 @@ module.exports = function (grunt) {
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
+				outputStyle: 'expanded',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
@@ -487,7 +490,11 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+		'clean:devServer',
     'concurrent:test',
+		'browserify:main',
+		'html2js:tpltoJs',
+		'concat:jstojs',
     'autoprefixer',
     'connect:test',
     'karma'
